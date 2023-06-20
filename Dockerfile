@@ -117,7 +117,7 @@ RUN curl -sSL https://install.python-poetry.org | python3 - \
     && /root/.local/bin/poetry install
 
 RUN ./configure --prefix=/tmp/lightning_install --enable-static && \
-    make DEVELOPER=${DEVELOPER} && \
+    make -j3 DEVELOPER=${DEVELOPER} && \
     /root/.local/bin/poetry run make install
 
 FROM debian:bullseye-slim as final
