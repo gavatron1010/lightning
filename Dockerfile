@@ -48,26 +48,32 @@ FROM debian:bullseye-slim as builder
 ENV LIGHTNINGD_VERSION=master
 RUN apt-get update -qq && \
     apt-get install -qq -y --no-install-recommends \
-        autoconf \
-        automake \
-        build-essential \
-        ca-certificates \
-        curl \
-        dirmngr \
-        gettext \
-        git \
-        gnupg \
-        libpq-dev \
-        libtool \
-        libffi-dev \
-        protobuf-compiler \
-        python3 \
-        python3-dev \
-        python3-mako \
-        python3-pip \
-        python3-venv \
-        python3-setuptools \
-        wget
+			autoconf \
+			autoconf-archive \
+			automake \
+			build-essential \
+			ca-certificates \
+			curl \
+			dirmngr \
+			dnsutils \
+			gettext \
+			git \
+			gnupg \
+			libcurl4-gnutls-dev \
+			libev-dev \
+			libpq-dev \
+			libsqlite3-dev \
+			libtool \
+			libffi-dev \
+			pkg-config \
+			protobuf-compiler \
+			python3 \
+			python3-dev \
+			python3-mako \
+			python3-pip \
+			python3-venv \
+			python3-setuptools \
+			wget
 
 RUN wget -q https://zlib.net/fossils/zlib-1.2.13.tar.gz \
     && tar xvf zlib-1.2.13.tar.gz \
