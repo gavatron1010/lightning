@@ -141,6 +141,7 @@ RUN apt-get update && \
       inotify-tools \
       python3 \
       python3-pip \
+			libev-dev libcurl4-gnutls-dev libsqlite3-dev dnsutils \
       libpq5 && \
     rm -rf /var/lib/apt/lists/*
 
