@@ -120,6 +120,17 @@ RUN ./configure --prefix=/tmp/lightning_install --enable-static && \
     make -j3 DEVELOPER=${DEVELOPER} && \
     /root/.local/bin/poetry run make install
 
+# Build CLBOSS
+WORKDIR /opt
+
+RUN git clone https://github.com/gavatron1010/clboss \
+&& cd clboss \
+&& git checkout n3on \
+&& autoreconf -i \
+&& ./configure CXXFLAGS="-O2" \
+&& make -j3 \
+&& make install
+
 FROM debian:bullseye-slim as final
 
 COPY --from=downloader /opt/tini /usr/bin/tini
